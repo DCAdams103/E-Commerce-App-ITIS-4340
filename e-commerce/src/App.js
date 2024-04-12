@@ -7,6 +7,7 @@ import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./components/Card";
 import "./index.css";
+import {Link} from "react-router-dom";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -53,16 +54,18 @@ function App() {
     }
 
     return filteredProducts.map(
-      ({ img, title, star, reviews, prevPrice, newPrice }) => (
-        <Card
-          key={Math.random()}
-          img={img}
-          title={title}
-          star={star}
-          reviews={reviews}
-          prevPrice={prevPrice}
-          newPrice={newPrice}
-        />
+      ({ img, title, star, reviews, prevPrice, newPrice, id }) => (
+        <Link to={{pathname: `/product/${id}`}}>
+          <Card
+            key={Math.random()}
+            img={img}
+            title={title}
+            star={star}
+            reviews={reviews}
+            prevPrice={prevPrice}
+            newPrice={newPrice}
+          />
+        </Link>
       )
     );
   }

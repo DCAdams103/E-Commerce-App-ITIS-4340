@@ -2,7 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 
 const data = [
   {
-    img: "https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg",
+    img: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/f9a8deaa-87f2-4191-92b8-c7661aae48de/air-monarch-iv-mens-workout-shoes-p8qNlT.png",
     title: "Nike Air Monarch IV",
     star: <AiFillStar className="rating-star" />,
     reviews: "(123 reviews)",
@@ -11,6 +11,10 @@ const data = [
     company: "Nike",
     color: "white",
     category: "sneakers",
+    description: "Enjoy exercising in the versatile Nike Men's Air Monarch IV Lightweight Training Shoes. The shoes feature leather uppers for durability and support, and the solid rubber outsoles provide excellent traction for your training needs.  ",
+    options: ["https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d43b949c-246a-4964-8a5c-23f354a4e542/air-monarch-iv-mens-workout-shoes-p8qNlT.png",
+              "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7869dac9-4d4a-4337-9c13-affa8c0d3c5c/air-monarch-iv-mens-workout-shoes-p8qNlT.png"],
+    id: 1,
   },
   {
     img: "https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg",
@@ -22,6 +26,8 @@ const data = [
     company: "Nike",
     color: "red",
     category: "sneakers",
+    options: [],
+    id: 2,
   },
 
   {
@@ -34,6 +40,8 @@ const data = [
     company: "Nike",
     color: "green",
     category: "sneakers",
+    options: [],
+    id: 3,
   },
   {
     img: "https://m.media-amazon.com/images/I/71oEKkghg-L._AC_UX575_.jpg",
@@ -45,6 +53,8 @@ const data = [
     company: "Adidas",
     color: "black",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 4,
   },
   {
     img: "https://m.media-amazon.com/images/I/41M54ztS6IL._AC_SY625._SX._UX._SY._UY_.jpg",
@@ -56,6 +66,8 @@ const data = [
     company: "Vans",
     color: "green",
     category: "flats",
+    options: [2, 3, 4, 5, 6],
+    id: 5,
   },
   {
     img: "https://m.media-amazon.com/images/I/71zKuNICJAL._AC_UX625_.jpg",
@@ -67,6 +79,8 @@ const data = [
     company: "Adidas",
     color: "black",
     category: "flats",
+    options: [2, 3, 4, 5, 6],
+    id: 6,
   },
 
   {
@@ -79,6 +93,8 @@ const data = [
     company: "Vans",
     color: "white",
     category: "flats",
+    options: [2, 3, 4, 5, 6],
+    id: 7,
   },
 
   {
@@ -91,6 +107,8 @@ const data = [
     company: "Nike",
     color: "green",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 8,
   },
 
   {
@@ -103,6 +121,8 @@ const data = [
     company: "Adidas",
     color: "blue",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 9,
   },
 
   {
@@ -115,6 +135,8 @@ const data = [
     company: "Puma",
     color: "green",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 10,
   },
   {
     img: "https://m.media-amazon.com/images/I/71E75yRwCDL._AC_UY575_.jpg",
@@ -126,6 +148,8 @@ const data = [
     company: "Puma",
     color: "red",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 11,
   },
   {
     img: "https://m.media-amazon.com/images/I/71jeoX0rMBL._AC_UX575_.jpg",
@@ -137,6 +161,8 @@ const data = [
     company: "Puma",
     color: "black",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 12,
   },
   {
     img: "https://m.media-amazon.com/images/I/61TM6Q9dvxL._AC_UX575_.jpg",
@@ -148,6 +174,8 @@ const data = [
     company: "Puma",
     color: "white",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 13,
   },
   {
     img: "https://m.media-amazon.com/images/I/7128-af7joL._AC_UY575_.jpg",
@@ -159,6 +187,8 @@ const data = [
     company: "Puma",
     color: "black",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 14,
   },
 
   {
@@ -171,6 +201,8 @@ const data = [
     company: "Puma",
     color: "green",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 15,
   },
   {
     img: "https://m.media-amazon.com/images/I/719gdz8lsTS._AC_UX575_.jpg",
@@ -182,6 +214,8 @@ const data = [
     company: "Vans",
     color: "red",
     category: "flats",
+    options: [2, 3, 4, 5, 6],
+    id: 16,
   },
   {
     img: "https://m.media-amazon.com/images/I/71gpFHJlnoL._AC_UX575_.jpg",
@@ -193,6 +227,8 @@ const data = [
     company: "Vans",
     color: "white",
     category: "sandals",
+    options: [2, 3, 4, 5, 6],
+    id: 17,
   },
   {
     img: "https://m.media-amazon.com/images/I/71pf7VFs9CL._AC_UX575_.jpg",
@@ -204,6 +240,8 @@ const data = [
     company: "Vans",
     color: "blue",
     category: "sandals",
+    options: [2, 3, 4, 5, 6],
+    id: 18,
   },
   {
     img: "https://m.media-amazon.com/images/I/61N4GyWcHPL._AC_UY575_.jpg",
@@ -215,6 +253,8 @@ const data = [
     company: "Nike",
     color: "black",
     category: "sandals",
+    options: [2, 3, 4, 5, 6],
+    id: 19,
   },
   {
     img: "https://m.media-amazon.com/images/I/61bncQ44yML._AC_UX695_.jpg",
@@ -226,6 +266,8 @@ const data = [
     company: "Vans",
     color: "black",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 20,
   },
   {
     img: "https://m.media-amazon.com/images/I/71czu7WgGuL._AC_UY695_.jpg",
@@ -237,6 +279,8 @@ const data = [
     company: "puma",
     color: "black",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 21,
   },
   {
     img: "https://m.media-amazon.com/images/I/61men05KRxL._AC_UY625_.jpg",
@@ -248,6 +292,8 @@ const data = [
     company: "Nike",
     color: "red",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 22,
   },
   {
     img: "https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg",
@@ -259,6 +305,8 @@ const data = [
     company: "Nike",
     color: "red",
     category: "sneakers",
+    options: [2, 3, 4, 5, 6],
+    id: 23,
   },
 
   {
@@ -271,6 +319,8 @@ const data = [
     company: "Nike",
     color: "black",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 24,
   },
   {
     img: "https://m.media-amazon.com/images/I/616sA5XUKtL._AC_UY675_.jpg",
@@ -282,6 +332,8 @@ const data = [
     company: "Adidas",
     color: "black",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 25,
   },
   {
     img: "https://m.media-amazon.com/images/I/71h5+MbEK7L._AC_UY625_.jpg",
@@ -293,6 +345,8 @@ const data = [
     company: "Adidas",
     color: "white",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 26,
   },
   {
     img: "https://m.media-amazon.com/images/I/61uw5RDxKQL._AC_UY625_.jpg",
@@ -304,6 +358,8 @@ const data = [
     company: "Adidas",
     color: "black",
     category: "heels",
+    options: [2, 3, 4, 5, 6],
+    id: 27,
   },
   {
     img: "https://m.media-amazon.com/images/I/71yhoZP0l6L._AC_UY695_.jpg",
@@ -315,6 +371,8 @@ const data = [
     company: "Adidas",
     color: "black",
     category: "flats",
+    options: [2, 3, 4, 5, 6],
+    id: 28,
   },
 ];
 
