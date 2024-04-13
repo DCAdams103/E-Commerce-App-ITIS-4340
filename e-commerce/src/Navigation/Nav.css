@@ -24,3 +24,9 @@ input {
   height: 1.5rem;
   margin-left: 2rem;
 }
+
+.signout {
+  float: right;
+  margin-left: 1.5em;
+  cursor: pointer;
+}

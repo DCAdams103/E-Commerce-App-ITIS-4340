@@ -17,7 +17,7 @@ const data = [
     id: 1,
   },
   {
-    img: "https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg",
+    img: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/81f05e44-e163-47f7-9610-3cdb8f06bacd/air-vapormax-plus-mens-shoe-nC0dzF.png",
     title: "Nike Air Vapormax Plus",
     star: <AiFillStar className="rating-star" />,
     reviews: "(123 reviews)",
@@ -26,12 +26,13 @@ const data = [
     company: "Nike",
     color: "red",
     category: "sneakers",
-    options: [],
+    options: ['https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/i1-8fd42049-6938-45f4-ae2a-e002658811d5/air-vapormax-plus-chicago-mens-shoes-nC0dzF.png',
+              'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/fbc7e2fc-e93b-4a0d-aa88-92c6bb961399/air-vapormax-plus-mens-shoes-nC0dzF.png'],
     id: 2,
   },
 
   {
-    img: "https://m.media-amazon.com/images/I/51+P9uAvb1L._AC_UY695_.jpg",
+    img: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/d616260a-0a8e-48b1-b5c5-e155b990acb8/waffle-one-mens-shoes-4SPCK4.png",
     title: "Nike Waffle One Sneaker",
     star: <AiFillStar className="rating-star" />,
     reviews: "(123 reviews)",
@@ -40,7 +41,8 @@ const data = [
     company: "Nike",
     color: "green",
     category: "sneakers",
-    options: [],
+    options: ['https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8630e7b1-e2a2-4591-904f-d6f6257682b1/waffle-one-se-mens-shoe-4SPCK4.png',
+              'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7903e483-c4e7-4fbf-8259-f265b1641c3f/waffle-one-mens-shoes-4SPCK4.png'],
     id: 3,
   },
   {
@@ -53,7 +55,7 @@ const data = [
     company: "Adidas",
     color: "black",
     category: "sneakers",
-    options: [2, 3, 4, 5, 6],
+    options: [],
     id: 4,
   },
   {

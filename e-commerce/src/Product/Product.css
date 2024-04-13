@@ -137,6 +137,21 @@
     padding-bottom: 1em;
 }
 
+.size-button-container {
+    display: inline-block;
+    background-color: #E0E0E0;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1em;
+    
+}
+.size-button {
+    width: 15px;
+    margin-left: 0.5em;
+    margin: 0 auto;
+    vertical-align: text-top;
+}
+
 /* ------------------- EXTRA BUTTONS (add to cart, favorite, compare) ------------------- */
 
 .size-container button {

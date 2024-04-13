@@ -11,7 +11,9 @@ export default function Product() {
 
     const {state} = useLocation();
     const {id} = useParams();
-    const [imgUrl, setImgUrl] = useState("");
+    const product = Products.find(product => product.id === parseInt(id));
+    const [imgUrl, setImgUrl] = useState(product.img);
+    const [selectedSize, setSelectSize] = useState("");
 
     // ----------- Input Filter -----------
     const [query, setQuery] = useState("");
@@ -19,12 +21,10 @@ export default function Product() {
     const handleInputChange = (event) => {
         setQuery(event.target.value);
     };
-
-    let product = Products.find(product => product.id === parseInt(id));
     
     useEffect(() => { 
         setImgUrl(product.img);
-    }, []);
+    }, [product]);
 
     const availableSizes = ["6.0", "6.5", "7.0", "7.5", "8.0", "8.5", "9.0", "9.5", "10.0"];
 
@@ -33,17 +33,28 @@ export default function Product() {
         return product;
     }
 
-    // return (
-    //     <Card
-    //         key={Math.random()}
-    //         img={product.img}
-    //         title={product.title}
-    //         star={product.star}
-    //         reviews={product.reviews}
-    //         prevPrice={product.prevPrice}
-    //         newPrice={product.newPrice}
-    //   />
-    // );
+    const sizeSelected = (eId) => {
+        if(selectedSize != eId) {
+            
+            if(selectedSize != "") {
+                let element = document.getElementById(selectedSize);
+                element.style.backgroundColor = "#E0E0E0";
+            }
+
+            let element = document.getElementById(eId);
+            element.style.backgroundColor = "#838383";
+            setSelectSize(eId);
+
+        }
+    };
+
+    const addToCart = () => {
+        if(selectedSize != "") {
+            console.log("Added to Cart");
+        } else {
+            alert("Please select a size first.");
+        }
+    };
 
     return (
         <div>
@@ -108,12 +119,12 @@ export default function Product() {
                     <h2 className="select-size-title">Select a Size:</h2>
                     <div className="size-container">
                         {availableSizes.map(size => (
-                            <button className="size-button" key={size}>{size}</button>
+                            <button className="size-button" id={size} onClick={()=>{sizeSelected(size);}}>{size}</button>
                         ))}
                     </div>
                         
                     <div className="button-container">
-                        <button className="add-to-cart">Add to Cart</button>
+                        <button className="add-to-cart" onClick={()=>addToCart()}>Add to Cart</button>
                         <button className="favorite-button">Favorite</button>
                         <button className="compare-button">Compare</button>
                     </div>

@@ -1,0 +1,66 @@
+.login-main-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 0;
+}
+
+.login-main-container h3 {
+    font-size: 2em;
+}
+
+.logo-link {
+    position: fixed;
+}
+
+.logo-link h1 {
+    font-size: 50px;
+    padding: 0.25em;
+}
+
+.main-img {
+    height: 100vh;
+}
+
+.right-container {
+    margin: auto;
+    width: 30vw;
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+.login-container * {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 90%;
+}
+
+.signup-field {
+    margin-bottom: 3em;
+}
+
+.button {
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 0.25em;
+}
+
+.signup-text-container {
+    display: inline-block;
+    margin-top: 2em;
+}
+
+.signup-text-container p {
+    display: inline;
+}
+
+.signup-text {
+    cursor: pointer;
+}
