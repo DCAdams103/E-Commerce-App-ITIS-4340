@@ -38,12 +38,21 @@ const Nav = ({ handleInputChange, query }) => {
         />
       </div>
       <div className="profile-container">
-        <a href="#">
-          <FiHeart className="nav-icons" />
-        </a>
-        <a href="">
-          <AiOutlineShoppingCart className="nav-icons" />
-        </a>
+        {user && (
+          <a href="#">
+          
+            <Link to={'/favorite'}>
+              <FiHeart className="nav-icons" />
+            </Link>
+          </a>
+        )}
+        {user && (
+          <a href="">
+            <Link to={'/cart'}>
+              <AiOutlineShoppingCart className="nav-icons" />
+            </Link>
+          </a>
+        )}
         <a href="">
           {!user ? (
             <Link to={'/login'}>

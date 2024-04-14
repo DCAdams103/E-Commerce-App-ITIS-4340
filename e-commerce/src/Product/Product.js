@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react"
 import {useLocation, useParams} from "react-router-dom";
 import Products from '../db/data';
-import Card from "../components/Card";
 import Navigation from "../Navigation/Nav";
-import Sidebar from "../Sidebar/Sidebar";
 import './Product.css';
 import {Link} from "react-router-dom";
+import {auth, db} from '../userAuth/userAuth';
+import { doc, deleteDoc, getDocs, addDoc, collection } from "firebase/firestore"; 
 
 export default function Product() {
 
@@ -14,6 +14,9 @@ export default function Product() {
     const product = Products.find(product => product.id === parseInt(id));
     const [imgUrl, setImgUrl] = useState(product.img);
     const [selectedSize, setSelectSize] = useState("");
+    const [user, setUser] = useState(null);
+    const [favText, setFavText] = useState("Favorite");
+    const [cartText, setCartText] = useState("Add to Cart");
 
     // ----------- Input Filter -----------
     const [query, setQuery] = useState("");
@@ -25,6 +28,43 @@ export default function Product() {
     useEffect(() => { 
         setImgUrl(product.img);
     }, [product]);
+
+    useEffect(() => {
+        auth.onAuthStateChanged(function(user) {
+          if (user) {
+            setUser(user);
+          }
+        });
+      }, []);
+
+    useEffect( () => {
+        if(user) {
+
+            getDocs(collection(db, "favorites"))
+            .then((docs) => {
+                docs.forEach((doc) => {
+                    if(doc.data().product == product.id && doc.data().uid == user.uid) {
+                        setFavText("Favorited");
+                    }
+                });
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+
+            getDocs(collection(db, "cart"))
+            .then((docs) => {
+                docs.forEach((doc) => {
+                    if(doc.data().product == product.id && doc.data().uid == user.uid) {
+                        setCartText("Added to Cart");
+                    }
+                });
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+
+        }
+    }, [user]);
+    
 
     const availableSizes = ["6.0", "6.5", "7.0", "7.5", "8.0", "8.5", "9.0", "9.5", "10.0"];
 
@@ -48,11 +88,85 @@ export default function Product() {
         }
     };
 
-    const addToCart = () => {
-        if(selectedSize != "") {
-            console.log("Added to Cart");
+    const addToCart = async () => {
+        if(user != null) {
+            if(cartText == "Added to Cart") {
+                {
+                    await getDocs(collection(db, "cart"))
+                    .then((docs) => {
+                        docs.forEach((result) => {
+                            if(result.data().product == product.id && result.data().uid == user.uid) {
+                                deleteDoc(doc(db, "cart", result.id))
+                            }
+                        });
+                    }).catch((error) => {
+                        console.log("Error getting document:", error);
+                    });
+                    setCartText("Add to Cart");
+                }
+            } else if(selectedSize != "") {
+                if(cartText == "Add to Cart") {
+
+                    await addDoc(collection(db, "cart"), {
+                        product: product.id,
+                        size: selectedSize,
+                        uid: user.uid,
+                    })
+                    .catch((error) => {
+                        console.error("Error adding document: ", error);
+                    });
+
+                    setCartText("Added to Cart");
+                }
+            } else {
+                alert("Please select a size first.");
+            }
         } else {
-            alert("Please select a size first.");
+            alert("Please sign in first.");
+        }
+
+    };
+
+    const addToFavorite = async () => {
+        if(user) {
+            if(favText == "Favorited") {
+                
+                await getDocs(collection(db, "favorites"))
+                    .then((docs) => {
+                        docs.forEach((result) => {
+                            if(result.data().product == product.id && result.data().uid == user.uid) {
+                                deleteDoc(doc(db, "favorites", result.id))
+                            }
+                        });
+                    }).catch((error) => {
+                        console.log("Error getting document:", error);
+                    });
+                    
+                setFavText("Favorite");
+                
+            } else {
+            
+                await addDoc(collection(db, "favorites"), {
+                    product: product.id,
+                    uid: user.uid,
+                })
+                .catch((error) => {
+                    console.error("Error adding document: ", error);
+                });
+                
+                setFavText("Favorited");
+
+            }
+        } else {
+            alert("Please sign in first.");
+        }
+    };
+
+    const compareAction = () => {
+        if(user) {
+            console.log("Added to Compare");
+        } else {
+            alert("Please sign in first.");
         }
     };
 
@@ -124,9 +238,9 @@ export default function Product() {
                     </div>
                         
                     <div className="button-container">
-                        <button className="add-to-cart" onClick={()=>addToCart()}>Add to Cart</button>
-                        <button className="favorite-button">Favorite</button>
-                        <button className="compare-button">Compare</button>
+                        <button className="add-to-cart" onClick={()=>addToCart()}>{cartText}</button>
+                        <button className="favorite-button" onClick={()=> addToFavorite()}>{favText}</button>
+                        <button className="compare-button" onClick={()=>compareAction()}>Compare</button>
                     </div>
                     
                 </div>
