@@ -15,9 +15,6 @@ const Card = ({ img, title, star, reviews, prevPrice, newPrice }) => {
             <div className="price">
               <del>{prevPrice}</del> {newPrice}
             </div>
-            <div className="bag">
-              <BsFillBagFill className="bag-icon" />
-            </div>
           </section>
         </div>
       </section>

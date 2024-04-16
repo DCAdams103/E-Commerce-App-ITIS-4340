@@ -5,6 +5,7 @@ import Product from "./Product/Product";
 import Login from './Login/Login'
 import Favorite from './Favorite/Favorite'
 import Cart from './Cart/Cart'
+import Compare from './Compare/Compare'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/favorite" element={<Favorite />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/compare/:id" element={<Compare />} />
             </Routes>
         </BrowserRouter>
     )

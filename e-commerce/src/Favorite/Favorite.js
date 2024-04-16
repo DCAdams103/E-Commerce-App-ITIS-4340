@@ -89,7 +89,6 @@ export default function Favorite() {
                         </Link>
                         <div className="favorite-options">
                             <h3 style={{cursor: 'pointer'}} onClick={()=>removeFavorite(product)}>Remove</h3>
-                            <h3>Add to Cart</h3>
                         </div>
                     </div>
                 </div>

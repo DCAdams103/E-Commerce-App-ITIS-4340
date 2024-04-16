@@ -5,6 +5,10 @@ import {Link} from "react-router-dom";
 import {auth, db} from '../userAuth/userAuth';
 import { doc, deleteDoc, getDocs, addDoc, collection } from "firebase/firestore"; 
 import Products from '../db/data';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { Button, TextField } from '@mui/material';
 
 export default function Cart() {
 
@@ -12,7 +16,8 @@ export default function Cart() {
     const [totalItems, setTotalItems] = useState(0);
     const [user, setUser] = useState(null);
     const [products, setProducts] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0.0);
+    const [shipping, setShipping] = useState("Standard Shipping");
 
     const handleInputChange = (event) => {
         setQuery(event.target.value);
@@ -42,7 +47,7 @@ export default function Cart() {
                         if(doc.data().uid == user.uid) {
                             count += 1;
                             tempProducts.push({id: doc.data().product, size: doc.data().size});
-                            tempTotal += getOptions(doc.data().product).newPrice;
+                            tempTotal += parseFloat(getOptions(doc.data().product).newPrice);
                         }
                     });
                     setTotalItems(count);
@@ -64,8 +69,10 @@ export default function Cart() {
                         deleteDoc(doc(db, "cart", result.id))
                         let temp = products;
                         let filtered = temp.filter(item => item.id !== id);
+                        let tPrice = totalPrice - parseFloat(getOptions(id).newPrice);
                         setProducts([...filtered])
                         setTotalItems(totalItems - 1);
+                        setTotalPrice(tPrice);
                     }
                 });
             }).catch((error) => {
@@ -94,6 +101,10 @@ export default function Cart() {
                 })}
             </>
         )
+    };
+
+    const handleChange = (event) => {
+        setShipping(event.target.value);
     };
 
     return (
@@ -127,7 +138,36 @@ export default function Cart() {
                 </div>
                 
                 <div className="right-side">
+                    <div className="order-top-row">
+                        <h1 className='order-title'>Order Summary</h1>
+                    </div>
+                    <div className="order-item-total">
+                        <h3 className="order-item-items">Items: {totalItems}</h3>
+                        <h3>${totalPrice}</h3>
+                    </div>
+                    <div className="shipping-container">
+                        <h3 className="ship-text">Shipping</h3>
+                        <FormControl sx={{maxWidth: 200}}>
+                            <Select value={shipping} onChange={handleChange}>
+                                <MenuItem value="Standard Shipping">Standard Shipping</MenuItem>
+                                <MenuItem value="Express Shipping">Express Shipping</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
 
+                    <div className="shipping-container">
+                        <h3 className="ship-text">Promo Code</h3>
+                        <TextField id="standard-basic" label="" variant="standard" />
+                    </div>
+                    
+                    <div className="apply-button">
+                        <Button variant="contained">Apply</Button>
+                    </div>
+
+                    <hr/>
+
+                    <h3 className="total-cost-text">Total Cost: ${totalPrice}</h3>
+                    
                 </div>
 
             </div>

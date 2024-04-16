@@ -6,10 +6,9 @@ import {useEffect, useState} from "react";
 import { signOut } from "firebase/auth";
 import {auth} from '../userAuth/userAuth';
 
-const Nav = ({ handleInputChange, query }) => {
+const Nav = ({ handleInputChange, query, search }) => {
  
   const [user, setUser] = useState(null);  
-
   const signOutUser = () => {
     signOut(auth).then(() => {
       setUser(null);
@@ -26,16 +25,18 @@ const Nav = ({ handleInputChange, query }) => {
     });
   }, []);
   
+  
   return (
     <nav>
       <div className="nav-container">
-        <input
+        {search && <input
           className="search-input"
           type="text"
           onChange={handleInputChange}
           value={query}
           placeholder="Enter your search shoes."
-        />
+        />}
+        
       </div>
       <div className="profile-container">
         {user && (

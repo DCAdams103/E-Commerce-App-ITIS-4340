@@ -1,0 +1,121 @@
+.compare-container {
+    display: grid;
+    grid-template-columns: 2 1fr;
+    width: 100%;
+    height: 80vh;
+}
+
+.left-product {
+    max-width: 45vw;
+    min-width: 45vw;
+    grid-column: 1;
+    border-right: 5px solid black;
+}
+
+.right-product {
+    grid-column: 2;
+    max-width: 45vw;
+    min-width: 45vw;
+    
+}
+
+.compare-image-container {
+    background-color: #E0E0E0;
+    width: 20em;
+    height: 25em;
+    border: 1px solid black;
+    display: grid;
+    place-items: center;
+    grid-column: 1;
+}
+
+.left-images {
+    margin-left: 10%;
+    margin-top: 5%;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+}
+
+.left-images h2 {
+    margin-top: 3%;
+}
+
+.color-options {
+    margin-left: 10%;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.favorite-compare-button {
+    width: 90%;
+    height: 3em;
+    display: block;
+    margin-top: 2em;
+}
+
+/* ------------------- PRODUCT PRICE, DESC AND CATEGORY ------------------- */
+.compare-product-details {
+    text-align: left;
+    margin-left: 15%;
+}
+
+.compare-product-details h1 {
+    font-size: 1.5em;
+}
+
+.left-category h2 {
+    font-size: 1.25em;
+}
+
+.left-price {
+    font-size: 1.5em !important;
+}
+
+.left-desc-text {
+    font-size: 1em !important;
+    text-align: left;
+}
+
+/* ------------------- RIGHT SIDE COMPARE ------------------- */
+.right-options {
+    display: grid;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+
+.compare-product {
+    width:50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.compare-image {
+    width: 50%;
+    float: left;
+}
+
+.compare-button {
+    width: 50%;
+}
+
+.compare-title, .compare-price {
+    margin-left: 60%;
+}
+
+.compare-price {
+    margin-top: 5%;
+}
+
+.favorite-compare-items-button {
+    width: 30%;
+    height: 3em;
+    float: right;
+    margin-right: 40%;
+}
+
+.right-options hr {
+    width: 75%;
+    margin: 0 auto;
+}

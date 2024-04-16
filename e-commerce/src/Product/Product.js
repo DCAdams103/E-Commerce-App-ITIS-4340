@@ -162,14 +162,6 @@ export default function Product() {
         }
     };
 
-    const compareAction = () => {
-        if(user) {
-            console.log("Added to Compare");
-        } else {
-            alert("Please sign in first.");
-        }
-    };
-
     return (
         <div>
             <style>
@@ -240,7 +232,9 @@ export default function Product() {
                     <div className="button-container">
                         <button className="add-to-cart" onClick={()=>addToCart()}>{cartText}</button>
                         <button className="favorite-button" onClick={()=> addToFavorite()}>{favText}</button>
-                        <button className="compare-button" onClick={()=>compareAction()}>Compare</button>
+                        <Link to={`/compare/${product.id}`} className="compare-button">
+                            <button className="compare-button">Compare</button>
+                        </Link>
                     </div>
                     
                 </div>

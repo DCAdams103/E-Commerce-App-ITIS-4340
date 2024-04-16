@@ -7,6 +7,7 @@
     display: inline-block;
     width: 70%;
     border-bottom: 3px solid #E0E0E0;
+    margin-left: 10%;
 }
 
 .top-row h1 {
@@ -42,7 +43,7 @@
 
 .left-side {
     float: left;
-    width: 75vw;
+    width: 70vw;
     margin-top: 2%;
 }
 
@@ -53,7 +54,8 @@
 .right-side {
     width: 20vw;
     height: 80vh;
-    margin-top: 2%;
+    margin-top: 1%;
+    margin-right: 5%;
     float: right;
     background-color: #DEDEDE;
 }
@@ -92,4 +94,57 @@
     margin-right: 50%;
     font-size: 1.5em;
     float: right;
+}
+
+.order-top-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.order-title {
+    font-size: 2em;
+    margin-top: 2%;
+    border-bottom: 3px solid rgba(0,0,0,0.25);
+    width: 80%;
+}
+
+.order-item-total {
+    display: inline-block;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.order-item-total h3 {
+    display: inline;
+}
+
+.order-item-items {
+    margin-right: 40%;
+}
+
+.shipping-container {
+    margin-top: 5%;
+    width: 100%;
+}
+
+.ship-text {
+    margin-bottom: 5%;
+    width: 100%;    
+}
+
+.apply-button {
+    margin-top: 10%;
+}
+
+.right-side hr {
+    margin: 0 auto;
+    color: rgba(0,0,0,0.4);
+    margin-top: 15%;
+    width: 80%;
+}
+
+.total-cost-text {
+    margin-top: 10%;
+    font-size: 1.5em;
 }

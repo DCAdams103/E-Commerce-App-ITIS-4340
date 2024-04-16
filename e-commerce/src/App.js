@@ -62,8 +62,7 @@ function App() {
             title={title}
             star={star}
             reviews={reviews}
-            prevPrice={prevPrice}
-            newPrice={newPrice}
+            newPrice={"$"+ newPrice}
           />
         </Link>
       )
@@ -75,7 +74,7 @@ function App() {
   return (
     <>
       <Sidebar handleChange={handleChange} />
-      <Navigation query={query} handleInputChange={handleInputChange} />
+      <Navigation query={query} handleInputChange={handleInputChange} search={true} />
       <Recommended handleClick={handleClick} />
       <Products result={result} />
     </>
